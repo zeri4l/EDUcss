@@ -1,0 +1,70 @@
+header {
+  height: 60px;
+  background-color: red;
+}
+/* 높이 60px, 배경 빨강 */
+
+nav {
+  height: 0px;
+  /* display: none; */
+  background-color: green;
+  transition: height 2s;
+}
+/* 높이 40px, 배경 초록, 보이지 않음 */
+
+main {
+  display: flex;
+  height: 100vh;
+}
+/* 자식이 수평 정렬, 높이는 사용자의 보고 있는 브라우저 높이 */
+main > aside {
+  height: 100%;
+  width: 480px;
+  background-color: yellow;
+}
+/* 높이는 부모 요소의 크기만큼(main, 100vh), 가로 길이는 480px, 배경 노란색  */
+
+main > section {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+/* display: flex는 부모 요소를 넘을 수 없기 때문에 폭은 부모 요소의 크기만큼(main, 480px), 
+ 안쪽 여백 16px, 자식 요소 수평 정렬, 본인의 크기를 넘으면 줄 바꿈을 한다(wrap), 간격 16px */
+section > article {
+  flex-basis: 280px;
+  border: 1px solid #000;
+}
+/* 가로 길이는 280px, 1px의 테두리가 4방면으로 검정색 */
+
+footer {
+  height: 160px;
+  padding: 32px;
+  color: #fff;
+  background-color: #000;
+}
+
+@media screen and (max-width: 767px) {
+  main > aside {
+    display: none;
+  }
+  nav {
+    /* display: block; */
+    height: 40px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  main > aside {
+    width: 280px;
+    display: none;
+  }
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+/* media query는 사용자의 viewport를 확인하여
+내가 원하는 css문법을 적용하는 것 */
